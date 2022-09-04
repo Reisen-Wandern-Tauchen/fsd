@@ -283,7 +283,7 @@ void fsd::configmyserver()
 void fsd::configure()
 {
    clientport=6809, serverport=3011, systemport=3012;
-   bindadress=NULL;
+   bindaddress=NULL;
    configentry *entry;
    configgroup *sysgroup=configman->getgroup("system");
    /* Configure */
@@ -299,8 +299,8 @@ void fsd::configure()
          certfile=strdup(entry->getdata());
       if ((entry=sysgroup->getentry("whazzup"))!=NULL)
 		 whazzupfile=strdup(entry->getdata());
-      if ((entry=sysgroup->getentry("bindadress"))!=NULL)
-         bindadress=strdup(entry->getdata());
+      if ((entry=sysgroup->getentry("bindaddress"))!=NULL)
+         bindaddress=strdup(entry->getdata());
 
    }
    configmyserver();
@@ -369,9 +369,9 @@ void fsd::createinterfaces()
 {
    char prompt[100];
    sprintf(prompt,"%s> ",myserver->ident);
-   clientinterface=new clinterface(clientport, "client", "client interface", bindadress);
-   serverinterface=new servinterface(serverport, "server", "server interface", bindadress);
-   systeminterface=new sysinterface(systemport, "system","system management interface", bindadress);
+   clientinterface=new clinterface(clientport, "client", "client interface", bindaddress);
+   serverinterface=new servinterface(serverport, "server", "server interface", bindaddress);
+   systeminterface=new sysinterface(systemport, "system","system management interface", bindaddress);
    systeminterface->setprompt(prompt);
    
    serverinterface->setfeedstrategy(FEED_BOTH);
