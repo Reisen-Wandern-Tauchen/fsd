@@ -19,8 +19,8 @@
 
 /* The serverinterface class */
 
-servinterface::servinterface(int port, char *code, char *d):
-    tcpinterface(port, code, d)
+servinterface::servinterface(int port, char *code, char *d, char *a = NULL):
+    tcpinterface(port, code, d, a)
 {
    packetcount=0;
    varmchandled=manager->addvar("protocol.multicast.handled", ATT_INT);

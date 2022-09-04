@@ -9,6 +9,7 @@
 	#include <netinet/in.h>
 	#include <netinet/tcp.h>
 	#include <netdb.h>
+	#include <arpa/inet.h>
 #endif
 #include <ctime>
 #include <cctype>
@@ -34,7 +35,7 @@ const char *killreasons[]=
    "killed on command",
    "protocol revision error"
 };
-tcpinterface::tcpinterface(int port, char *code, char *descr)
+tcpinterface::tcpinterface(int port, char *code, char *descr, char *address)
 {
    int on=1;
    struct sockaddr_in sa;
@@ -44,7 +45,8 @@ tcpinterface::tcpinterface(int port, char *code, char *descr)
    memset(&sa,0,sizeof(sa));
    sa.sin_family=AF_INET;
    sa.sin_port=htons(port);
-   sa.sin_addr.s_addr=htonl(INADDR_ANY);
+   if( address==NULL) sa.sin_addr.s_addr=htonl(INADDR_ANY);
+   else sa.sin_addr.s_addr=inet_addr( address );
    sock=socket(AF_INET,SOCK_STREAM,0);
    if (setsockopt(sock, SOL_SOCKET, SO_REUSEADDR, (const char *)&on,sizeof(on))<0)
    {

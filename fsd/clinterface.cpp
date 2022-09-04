@@ -18,8 +18,8 @@
 
 /* The client interface class */
 
-clinterface::clinterface(int port, char *code, char *d):
-   tcpinterface(port, code, d)
+clinterface::clinterface(int port, char *code, char *d, char *a):
+   tcpinterface(port, code, d, a)
 {
    prevwinddelta=mtime();
 }

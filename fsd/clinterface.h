@@ -28,7 +28,7 @@ class clinterface:public tcpinterface
    void sendwinddelta();
    void handlekill(client *, char *);
    int calcrange(client *, client *, int, int);
-   clinterface(int, char *, char *);
+   clinterface(int, char *, char *, char *);
    virtual int run();
    virtual void newuser(int, char *, int, int);
    friend class cluser;

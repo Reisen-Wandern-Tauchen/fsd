@@ -62,7 +62,7 @@ class tcpinterface : public process
    public:
    absuser *rootuser;
    guardstruct *rootgs;
-   tcpinterface(int, char *, char *);
+   tcpinterface(int, char *, char *, char *);
    ~tcpinterface();
    void setprompt(char *);
    void setflood(int);

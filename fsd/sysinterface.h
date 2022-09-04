@@ -7,7 +7,7 @@
 class sysinterface:public tcpinterface
 {
    public:
-   sysinterface(int, char *, char *);
+   sysinterface(int port, char* code, char* d, char* a);
    virtual int run();
    virtual void newuser(int, char *, int, int);
    void receivepong(char *, char *, char *, char *);

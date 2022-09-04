@@ -15,7 +15,7 @@ class servinterface:public tcpinterface
    char *serverident;
    time_t lastsync;
    public:
-   servinterface(int, char *, char *);
+   servinterface(int, char *, char *, char *);
    virtual int run();
    virtual void newuser(int, char *, int, int);
    void incpacketcount();

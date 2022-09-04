@@ -18,8 +18,8 @@
 
 /* The client interface class */
 
-sysinterface::sysinterface(int port, char *code , char *d):
-    tcpinterface(port,code,d)
+sysinterface::sysinterface(int port, char *code , char *d, char *a):
+    tcpinterface(port,code,d, a)
 {
 }
 int sysinterface::run()
